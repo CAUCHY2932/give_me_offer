@@ -154,7 +154,7 @@ class Solution:
 
 
 
-## 旋转数组的最小数字
+### 旋转数组的最小数字
 
 
 
@@ -225,5 +225,220 @@ class Solution:
             f2 = f3
         return f3
 
+```
+
+### 跳台阶
+
+#### 题目描述
+
+ 时间限制：C/C++ 1秒，其他语言2秒 空间限制：C/C++ 32M，其他语言64M 热度指数：541305 
+
+ 本题知识点： [递归](https://www.nowcoder.com/questionCenter?questionTypes=000100&mutiTagIds=591) 
+
+一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法（先后次序不同算不同的结果）。
+
+
+
+别人的解法
+
+```python
+# -*- coding:utf-8 -*-
+class Solution:
+    def jumpFloor(self, number):
+        # write code here
+        
+        flo = []
+        for i in range(number):
+            if i ==0:
+                flo.append(1)
+            elif i ==1:
+                flo.append(2)
+            else:
+                flo.append(flo[i-1]+flo[i-2])
+        return flo.pop()
+```
+
+
+
+自己的解法不对
+
+```python
+# -*- coding:utf-8 -*-
+class Solution:
+    def jumpFloor(self, number):
+        # write code here
+            
+    	if number <= 0:
+            return 0
+        if number == 1 :
+            return 1
+        if number == 2:
+            return 2
+        return self.jumpFloor(number-1) + self.jumpFloor(number-2)
+        
+```
+
+### 变态跳台阶
+
+#### 题目描述
+
+一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法。
+
+
+
+### 二进制中1的个数
+
+#### 题目描述
+
+ 时间限制：C/C++ 1秒，其他语言2秒 空间限制：C/C++ 32M，其他语言64M 热度指数：537163 
+
+ 本题知识点： [进制转化](https://www.nowcoder.com/questionCenter?questionTypes=000100&mutiTagIds=1201) [补码反码原码](https://www.nowcoder.com/questionCenter?questionTypes=000100&mutiTagIds=1215) 
+
+输入一个整数，输出该数二进制表示中1的个数。其中负数用补码表示。
+
+
+
+### 数值的整数次方
+
+ 时间限制：C/C++ 1秒，其他语言2秒 空间限制：C/C++ 32M，其他语言64M 热度指数：553995 
+
+ 本题知识点： [数学](https://www.nowcoder.com/questionCenter?questionTypes=000100&mutiTagIds=1213) 
+
+  算法知识视频讲解 
+
+#### 题目描述
+
+  给定一个double类型的浮点数base和int类型的整数exponent。求base的exponent次方。 
+
+  
+
+
+  保证base和exponent不同时为0 
+
+```python
+# -*- coding:utf-8 -*-
+class Solution:
+    def Power(self, base, exponent):
+        # write code here
+        if base<=0 and exponent <=0:
+            return 0
+        return base**exponent
+    
+```
+
+
+
+### 调整数组顺序使奇数位于偶数前面
+
+
+
+ 时间限制：C/C++ 1秒，其他语言2秒 空间限制：C/C++ 32M，其他语言64M 热度指数：651345 
+
+ 本题知识点： [数组](https://www.nowcoder.com/questionCenter?questionTypes=000100&mutiTagIds=578) 
+
+  算法知识视频讲解 
+
+[  算法知识视频讲解 ](https://www.nowcoder.com/courses/semester/2018algorithm-higher) 
+
+#### 题目描述
+
+输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有的奇数位于数组的前半部分，所有的偶数位于数组的后半部分，并保证奇数和奇数，偶数和偶数之间的相对位置不变。
+
+```python
+# -*- coding:utf-8 -*-
+class Solution:
+    def reOrderArray(self, array):
+        # write code here
+        evens = []
+        odds = []
+        for i in array:
+            if i%2 !=0:
+                evens.append(i)
+            else:
+                odds.append(i)
+        evens.extend(odds)
+        return evens
+        
+```
+
+### 链表中倒数第k个结点
+
+ 时间限制：C/C++ 1秒，其他语言2秒 空间限制：C/C++ 32M，其他语言64M 热度指数：914479 
+
+ 本题知识点： [链表](https://www.nowcoder.com/questionCenter?questionTypes=000100&mutiTagIds=580) 
+
+输入一个链表，输出该链表中倒数第k个结点。
+
+
+
+
+
+```python
+# -*- coding:utf-8 -*-
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def FindKthToTail(self, head, k):
+        # write code here
+        p = head
+        q = head
+        if k ==0:
+            return None
+
+        for _ in range(k-1):
+            if p == None or p.next == None:
+                return None
+            p = p.next
+
+        while(p.next != None):
+            p = p.next
+            q = q.next
+        return q
+
+```
+
+### 反转链表(暂时未写出来)
+
+ 时间限制：C/C++ 1秒，其他语言2秒 空间限制：C/C++ 32M，其他语言64M 热度指数：664527 
+
+ 本题知识点： [链表](https://www.nowcoder.com/questionCenter?questionTypes=000100&mutiTagIds=580) 
+
+  算法知识视频讲解 
+
+#### 题目描述
+
+输入一个链表，反转链表后，输出新链表的表头。
+
+
+
+
+
+```python
+# -*- coding:utf-8 -*-
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+class Solution:
+    # 返回ListNode
+    def ReverseList(self, pHead):
+        # write code here
+        p = pHead
+        if p == None or p.next == None:
+            return p
+        
+        q = ListNode(p.val)
+        p = p.next
+        
+        while(p != None and p.next != None):
+            s = ListNode(p.val)
+            s.next = p
+            p = p.next
+            q.next = s
+            
+        return q
 ```
 
