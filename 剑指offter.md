@@ -442,3 +442,26 @@ class Solution:
         return q
 ```
 
+daima
+
+```python
+class Solution:
+    # 返回ListNode
+    def ReverseList(self, pHead):
+        # write code here
+        p = pHead
+        if p == None or p.next == None:
+            return p
+        
+        q = ListNode(p.val)
+        p = p.next
+        
+        while(p != None and p.next != None):
+            s = p
+            p = p.next
+            s.next = q
+            q = s
+            
+        return q
+```
+
