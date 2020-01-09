@@ -420,14 +420,7 @@ class Solution:
 
 
 
-
-
 ```python
-# -*- coding:utf-8 -*-
-# class ListNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
 class Solution:
     # 返回ListNode
     def ReverseList(self, pHead):
@@ -439,12 +432,62 @@ class Solution:
         q = ListNode(p.val)
         p = p.next
         
-        while(p != None and p.next != None):
-            s = ListNode(p.val)
-            s.next = p
+        while(p != None):
+            s = p
             p = p.next
-            q.next = s
-            
+            s.next = q
+            q = s         
         return q
 ```
+
+
+
+
+
+### 合并两个排序的链表
+
+时间限制：C/C++ 1秒，其他语言2秒 空间限制：C/C++ 32M，其他语言64M 热度指数：643735
+
+本题知识点： [链表](https://www.nowcoder.com/questionCenter?questionTypes=000100&mutiTagIds=580)
+
+#### 题目描述
+
+输入两个单调递增的链表，输出两个链表合成后的链表，当然我们需要合成后的链表满足单调不减规则。
+
+
+
+
+
+### 树的子结构
+
+#### 题目描述
+
+输入两棵二叉树A，B，判断B是不是A的子结构。（ps：我们约定空树不是任意一个树的子结构）
+
+
+
+```python
+# -*- coding:utf-8 -*-
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+class Solution:
+    def HasSubtree(self, pRoot1, pRoot2):
+        # write code here
+        
+        
+    def mid_visit(self, p):
+        if p != None:
+            self.mid_visit(p.left)
+
+            return p
+    
+            self.mid_visit(p.right)
+        else:
+            return None
+```
+
+
 
